@@ -1,20 +1,49 @@
-function displayEvent() {
-
-    var apiURL = "https://api.meetup.com/find/topic_categories?photo-host=public&sig_id=261233219&sig=5429ec55637f83b08224374646e6a8845140dc4c";
-
-    $.ajax({
-        url: apiURL,
-        method: "GET"
-    }).then(function (response) {
-        $("#___").text(JSON.stringify(response));
-    });
-};
+var baseURL = "https://api.petfinder.com/";
+				var reqType = "pet.find?";
+				var params = "animal=dog&location=Chicago, IL&count=2&output=basic&";
+				var yourKey = "key=0164d1167e200069fe3eb9c06cc6f8b8&";
+				var format = "format=json";
+				var callback = "&callback=?";
 
 
-$(document).ready(function () {
-    $('.parallax').parallax();
-});
+				var fullURL = baseURL+reqType+params+yourKey+format+callback;
+				$(document).ready(function(){
+				  $(".animalInfo").text(fullURL);
 
-$(document).ready(function () {
-    $('input#input_text, textarea#textarea2').characterCounter();
-});
+				  $.ajax({
+					dataType: "json",
+					url: fullURL,
+					success:(function(data){
+					  var prettyData = JSON.stringify(data, null,'\t');
+                      $(".dog").text(prettyData);
+                      console.log(prettyData);
+
+					})
+				  });
+
+				});
+
+                // var baseURL1 = "https://api.petfinder.com/";
+				// var reqType1 = "pet.find?";
+				// var params1 = "animal=cat&location=Chicago, IL&count=2&output=basic&";
+				// var yourKey1 = "key=0164d1167e200069fe3eb9c06cc6f8b8&";
+				// var format1 = "format=json";
+				// var callback1 = "&callback=?";
+                // var pTag = $("<p>");
+				// var fullURL1 = baseURL1+reqType1+params1+yourKey1+format1+callback1;
+				// $(document).ready(function(){
+				//   $(".cat").text(fullURL1);
+
+				//   $.ajax({
+				// 	dataType: "json",
+				// 	url: fullURL,
+				// 	success:(function(data){
+				// 	  var prettyData = JSON.stringify(data, null,'\t');
+                //       $(".cat").text(prettyData);
+                //       console.log(prettyData);
+
+				// 	})
+				//   });
+
+				// });
+			
