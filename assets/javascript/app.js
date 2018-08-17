@@ -5,6 +5,7 @@ var baseURL = "https://api.petfinder.com/";
 				var format = "format=json";
 				var callback = "&callback=?";
 
+
 				var fullURL = baseURL+reqType+params+yourKey+format+callback;
 				$(document).ready(function(){
 				  $(".animalInfo").text(fullURL);
