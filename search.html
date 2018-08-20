@@ -36,9 +36,25 @@
     <!-- Main Content Container-->
     <div class="container">
         <div class="row">
-            <div class="col s12">
-                <p>appDoption is the brainchild of Charlie Grogan, Amy Moretti, Sherif Mahmoud, Jorge Becerill Hernandez and Haddassah Mendoza-Elias, created as part of a group project during their time at the Northwestern University Coding Bootcamp.  We wanted to create an easy, picture focused way to see pets that are available for adoption.  We believe that by being picture-forward, it encourages people to fall in love with animals they may otherwise ignore due to age, sex, or adoption location.   Our goal is for you to scroll through, fall in love, and hopefully give that sweet face a new home.</p>
+            <div class="col s12 l6" id="searchDiv">
+                <p>Input your zipcode to search for shelters in your area.</p>
+                    <div class="row">
+                        <!-- Search Bar -->
+                        <div class="input-field col s6" id="searchBar">
+                                <!-- Target this input for zip code search-->
+                              <input placeholder="Zipcode" id="zipcode" type="text" class="validate">     
+                        </div>
+                    </div>    
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <!-- Button for Searching by Zipcode-->
+                            <a class="waves-effect waves-light btn cyan darken-2" id="searchButton">Search</a>
+                        </div>
+                    </div>
             </div>
+
+            <div class="col s12 l6" id="searchResults"></div>
+                <!-- Target Here to Populate Search Reults -->
         </div>
     </div>
 
@@ -74,15 +90,16 @@
         </footer>
 
 
- <!-- jQuery -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- <!--HERE javascript-->
- <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
- <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
- <!-- Base Javascript -->
- <script src="assets/javascript/app.js"></script>
- <script src="assets/javascript/location.js"></script>
- <script src="assets/materialize.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!--HERE javascript-->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <!-- Base Javascript -->
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/location.js"></script>
+    <script src="assets/materialize.js"></script>
 
 </body>
 
