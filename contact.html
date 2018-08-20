@@ -18,7 +18,9 @@
         <div class="row"></div>
         <div class="row">
             <div class="col s12 m6">
-                <a href="http://charles216.github.io/theGoat/index.html"><img src="assets/images/logo.png" alt="appDoption Logo"></a>
+                <a href="http://charles216.github.io/theGoat/index.html">
+                    <img src="assets/images/logo.png" alt="appDoption Logo">
+                </a>
             </div>
             <div class="col s12 m6" id="info">
                 <p>appDoption, the easiest way to find your next pet</p>
@@ -30,89 +32,78 @@
     <!-- Contact Form -->
     <div class="container" id="contactInput">
         <!-- Name: -->
-        <div class="row">
-            <div class="section"></div>
-            <div class="col s12">
-                <div class="input-field col s6">
-                    <input id="nameInput" type="text" class="validate">
-                    <label for="name" id="nameInput">Name:</label>
+        <div class="col s12 l6">
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <input placeholder="Name:" id="nameInput" type="text" class="validate">
                 </div>
             </div>
-            <div class="col s12 m4 l2"></div>
-        </div>
-
-        <!-- Email -->
-        <div class="row">
-            <div class="section"></div>
-            <div class="col s12">
-                <div class="input-field col s6">
-                    <input id="emailInput" type="email" class="validate">
-                    <label for="email">Email:</label>
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <input placeholder="Email:" id="emailInput" type="email" class="validate">
                 </div>
             </div>
-            <div class="col s12 m4 l2"></div>
-        </div>
-
-        <!-- Message -->
-        <div class="row">
-            <div class="section"></div>
-            <div class="col s12">
-                <div class="input-field input-field col s12">
-                    <textarea id="messageInput" class="materialize-textarea"></textarea>
-                    <label for="messageInput">Message:</label>
+            <div class="row">
+                <div class="input-field col s12 l8">
+                    <textarea placeholder="Message:" id="messageInput" class="materialize-textarea"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l6">
+                    <button class="btn waves-effect waves-light cyan darken-2" id="submit" type="submit" name="action">Submit</button>
                 </div>
             </div>
 
+
         </div>
 
-        <!-- Submit Button -->
-        <div class="section"></div>
-        <button class="btn cyan" id="submitBtn">Submit</button>
-        <div class="col s12 m4 l8 center-align"></div>
-        <div class="section"></div>
 
 
-    </div>
-
-
-  
-    <!-- Footer -->
-    <footer class="page-footer cyan">
-        <div class="container">
-            <div class="row valign-wrapper">
-                <div class="col s12 l2 valign-wrapper">
-                    <h6><a class="white-text" href="about.html">About</a></h6>
-                </div>
-                <div class="col s12 l2 valign-wrapper ">
-                    <h6><a class="white-text" href="search.html">Shelters</a></h6>
-                </div>
-                <div class="col s12 l4 center-align">
-                    <h5>appDoption</h5>
-                </div>
-                <div class="col s12 l2 valign-wrapper">
-                    <h6><a class="white-text" href="testimonials.html">Testimonials</a></h6>
-                </div>
-                <div class="col s12 l2 valign-wrapper ">
-                    <h6><a class="white-text " href="contact.html">Contact</a></h6>
+        <!-- Footer -->
+        <footer class="page-footer cyan">
+            <div class="container">
+                <div class="row valign-wrapper">
+                    <div class="col s12 l2 valign-wrapper">
+                        <h6>
+                            <a class="white-text" href="about.html">About</a>
+                        </h6>
+                    </div>
+                    <div class="col s12 l2 valign-wrapper ">
+                        <h6>
+                            <a class="white-text" href="search.html">Shelters</a>
+                        </h6>
+                    </div>
+                    <div class="col s12 l4 center-align">
+                        <h5>appDoption</h5>
+                    </div>
+                    <div class="col s12 l2 valign-wrapper">
+                        <h6>
+                            <a class="white-text" href="testimonials.html">Testimonials</a>
+                        </h6>
+                    </div>
+                    <div class="col s12 l2 valign-wrapper ">
+                        <h6>
+                            <a class="white-text " href="contact.html">Contact</a>
+                        </h6>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-copyright cyan darken-2 ">
-            <div class="container center-align ">
-                appDoption © 2018
+            <div class="footer-copyright cyan darken-2 ">
+                <div class="container center-align ">
+                    appDoption © 2018
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
- <!-- jQuery -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- <!--HERE javascript-->
- <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
- <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
- <!-- Base Javascript -->
- <script src="assets/javascript/app.js"></script>
- <script src="assets/javascript/location.js"></script>
- <script src="assets/materialize.js"></script>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!--HERE javascript-->
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+        <!-- Base Javascript -->
+        <script src="assets/javascript/app.js"></script>
+        <script src="assets/javascript/location.js"></script>
+        <script src="assets/javascript/"></script>
 
 
 </body>
