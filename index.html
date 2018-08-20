@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
     <!-- Our CSS -->
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
 
@@ -25,11 +26,13 @@
         <div class="row"></div>
         <div class="row">
             <div class="col s12 m6">
-                <a href="http://charles216.github.io/theGoat/index.html"><img src="assets/images/logo.png" alt="appDoption Logo"></a>
+
+
+              <a href="http://charles216.github.io/theGoat/index.html"><img src="assets/images/logo.png" alt="appDoption Logo"></a>
             </div>
             <div class="col s12 m6" id="info">
                 <p>appDoption, the easiest way to find your next pet</p>
-            </div>
+          </div>
         </div>
     </div>
 
@@ -38,9 +41,9 @@
         <div class="row">
 
             <!-- Zip Code Search-->
+
             <!-- Hide this div for populating search results -->
             <div class="col s12 center-align" id="hide">
-
                 <div class="col s12 m4 l2"></div>
                 <div class="col s12 m4 l8 center-align">Enter your zipcode to search
                     <div class="input-field center-align">
@@ -51,19 +54,24 @@
 
             </div>
         </div>
+
         <!-- Also Hide this div-->
         <!-- Row for Search Images -->
+
         <div class="row center-align">
             <div class="col s12">
                 <!-- Image for Dog Search -->
                 <div class="col s12 m6 dog">
-                    <img src="assets/images/dog.png" alt="dog search">
+                    <img id="dogBtn" src="assets/images/dog.png" alt="dog search">
+
                     <h2>Dogs</h2>
                 </div>
 
                 <!-- Image for Cat Search -->
                 <div class="col 12 m6 cat">
-                    <img src="assets/images/cat.png" alt="cat search">
+
+                    <img id="catBtn" src="assets/images/cat.png" alt="cat search">
+
                     <h2>Cats</h2>
                 </div>
             </div>
@@ -76,18 +84,38 @@
     </div>
 
 
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+
+
+
+    <!-- End of charlie stuff -->
+
+
+
+
+
      <!-- Footer -->
      <footer class="page-footer cyan">
         <div class="container">
             <div class="row valign-wrapper">
                 <div class="col s12 m4 l2 valign-wrapper">
                     <h6><a class="white-text href="about.html">About</a></h6>
+
                 </div>
                 <div class="col s12 m4 l8 center-align">
                     <h5>appDoption</h5>
                 </div>
                 <div class="col s12 m4 l2 valign-wrapper">
+
+            
+
                     <h6><a class="white-text" href="contact.html">Contact</a></h6>
+
                 </div>
             </div>
         </div>
@@ -109,6 +137,9 @@
  <script src="assets/javascript/location.js"></script>
  <script src="assets/materialize.js"></script>
 
-</body>
+    
+
+
+    </body>
 
 </html>
