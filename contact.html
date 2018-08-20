@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>appDoption</title>
+    <title>Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Materialize CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -23,72 +23,70 @@
     </div>
 
     <!-- Contact Form -->
-
     <div class="container" id="contactInput">
+        <!-- Name: -->
         <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="Name" type="text" class="validate">
-                        <label for="Name">Name</label>
-                    </div>
+            <div class="section"></div>
+            <div class="col s12">
+                <div class="input-field col s6">
+                    <input id="nameInput" type="text" class="validate">
+                    <label for="name" id="nameInput">Name:</label>
                 </div>
-                <div class="col s12 m4 l2"></div>
+            </div>
+            <div class="col s12 m4 l2"></div>
         </div>
 
-
-
+        <!-- Email -->
         <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="email" type="text" class="validate">
-                        <label for="email">Email</label>
-                    </div>
+            <div class="section"></div>
+            <div class="col s12">
+                <div class="input-field col s6">
+                    <input id="emailInput" type="email" class="validate">
+                    <label for="email">Email:</label>
                 </div>
-                <div class="col s12 m4 l2"></div>
+            </div>
+            <div class="col s12 m4 l2"></div>
         </div>
 
-
-
-
+        <!-- Message -->
         <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="textarea1" type="text" class="validate">
-                        <label for="textarea1">Message:</label>
-                    </div>
+            <div class="section"></div>
+            <div class="col s12">
+                <div class="input-field input-field col s12">
+                    <textarea id="messageInput" class="materialize-textarea"></textarea>
+                    <label for="messageInput">Message:</label>
                 </div>
-                <div class="col s12 m4 l2"></div>
+            </div>
+
         </div>
 
+        <!-- Submit Button -->
+        <div class="section"></div>
+        <button class="btn cyan" id="submitBtn">Submit</button>
+        <div class="col s12 m4 l8 center-align"></div>
+        <div class="section"></div>
 
-        </form>
-    </div>
+
     </div>
 
 
     <!-- Footer -->
-    <footer class="page-footer cyan">
-        <div class="container">
-            <div class="row valign-wrapper">
-                <div class="col s12 m4 l2 valign-wrapper">
-                    <h6 class="white-text">About</h6>
+    <footer class="page-footer cyan ">
+        <div class="container ">
+            <div class="row valign-wrapper ">
+                <div class="col s12 m4 l2 valign-wrapper ">
+                    <h6 class="white-text ">About</h6>
                 </div>
-                <div class="col s12 m4 l8 center-align">
+                <div class="col s12 m4 l8 center-align ">
                     <h5>appDoption</h5>
                 </div>
-                <div class="col s12 m4 l2 valign-wrapper">
-                    <h6 href="index.html" class="white-text">Home</h6>
+                <div class="col s12 m4 l2 valign-wrapper ">
+                    <h6 href="index.html " class="white-text ">Home</h6>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright cyan darken-2">
-            <div class="container center-align">
+        <div class="footer-copyright cyan darken-2 ">
+            <div class="container center-align ">
                 appDoption © 2018
             </div>
         </div>
@@ -99,13 +97,11 @@
         crossorigin='anonymous'></script>
 
     <!-- Materialize Javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js "></script>
 
     <!-- Base Javascript -->
-    <script src="assets/javascript/app.js">
-    </script>
-    <script src="assets/javascript/materialize.js">
-    </script>
+    <!-- <script src="assets/javascript/app.js "></script> -->
+    <script src="assets/javascript/contact.js "></script>
 
 </body>
 
