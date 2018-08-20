@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>appDoption</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Materialize CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+
     <!-- Our CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/style/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+
+
 </head>
 
 <body>
@@ -26,55 +33,15 @@
         </div>
     </div>
 
-
-    <!-- Contact Form -->
-
-    <div class="container" id="contactInput">
+    <!-- Main Content Container-->
+    <div class="container">
         <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="Name" type="text" class="validate">
-                        <label for="Name">Name</label>
-                    </div>
-                </div>
-                <div class="col s12 m4 l2"></div>
+            <div class="col s12">
+                <p>appDoption is the brainchild of Charlie Grogan, Amy Moretti, Sherif Mahmoud, Jorge Becerill Hernandez and Haddassah Mendoza-Elias, created as part of a group project during their time at the Northwestern University Coding Bootcamp.  We wanted to create an easy, picture focused way to see pets that are available for adoption.  We believe that by being picture-forward, it encourages people to fall in love with animals they may otherwise ignore due to age, sex, or adoption location.   Our goal is for you to scroll through, fall in love, and hopefully give that sweet face a new home.</p>
+            </div>
         </div>
-
-
-
-        <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="email" type="text" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="col s12 m4 l2"></div>
-        </div>
-
-
-
-
-        <div class="row">
-            <form class="col s12">
-                <div class="col s12 m4 l2"></div>
-                <div class="col s12 m4 l8 center-align">
-                    <div class="input-field col s6">
-                        <input id="textarea1" type="text" class="validate">
-                        <label for="textarea1">Message:</label>
-                    </div>
-                </div>
-                <div class="col s12 m4 l2"></div>
-        </div>
-
-
-        </form>
     </div>
-    </div>
+
 
 
     <!-- Footer -->
@@ -98,19 +65,20 @@
             </div>
         </div>
     </footer>
-    
+
+
+<body>
+    <div id='mapContainer'></div>
     <!-- jQuery -->
     <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
         crossorigin='anonymous'></script>
-
-    <!-- Materialize Javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <!--HERE javascript-->
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
     <!-- Base Javascript -->
-    <script src="assets/javascript/app.js">
-    </script>
-    <script src="assets/javascript/materialize.js">
-    </script>
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/location.js"></script>
 
 </body>
 
