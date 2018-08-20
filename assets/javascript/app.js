@@ -1,15 +1,21 @@
+
 var petForm = document.querySelector('#petForm');
 
-petForm.addEventListener('submit', fetchAnimals);
+$(".animalBtn").on('click', fetchAnimals);
 
 // fetch animals...
 function fetchAnimals(event) {
 	event.preventDefault();
 
 	//get user input...
-
-	var animal = document.querySelector('#animal').value;
-	var zip = document.querySelector('#zip').value;
+	var animal = '';
+	if ($(this).attr('id') === "catBtn") {
+		animal = "cat";
+	} else {
+		animal = "dog";
+	}
+	console.log(animal);
+	var zip = document.querySelector('#zipCode').value;
 
 	//Start API sequence...
 
@@ -25,7 +31,7 @@ function fetchAnimals(event) {
 			key: apiKey,
 			animal: animal,
 			'location': zip,
-			count: 2,
+			count: 25,
 			output: 'basic',
 			format: 'json'
 		},
