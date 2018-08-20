@@ -1,4 +1,4 @@
-
+console.log(123);
 var petForm = document.querySelector('#petForm');
 
 $(".animalBtn").on('click', fetchAnimals);
@@ -37,15 +37,17 @@ function fetchAnimals(event) {
 		},
 		//response from JSONP...
 		success: function (response) {
-			showAnimals(response.petfinder.pets.pet);
+			showAnimals(response);
+			console.log(response);
 
 			// show listing of pets....
-			function showAnimals(pets) {
+			function showAnimals(response) {
 				var results = document.querySelector('#results');
 				//clear first...
 				results.innerHTML = '';
-
+				var pets = response.petfinder.pets.pet;
 				pets.forEach((pet) => {
+					console.log(pet);
 					var divRow = $("<div>");
 					divRow.addClass('row');
 					
@@ -53,33 +55,39 @@ function fetchAnimals(event) {
 					divCol.addClass('col s12 m7');
 					
 					var divCard = $('<div>');
-					divCard.addClass('card');
-
+					divCard.addClass('card medium');
 					
 					var divCardImg = $('<div>');
 					divCardImg.addClass('card-image');
 					
 					var img = $("<img>");
-					img.attr("src", pet.media.photos.photo[2]);	
+					img.attr("src", pet.media.photos.photo[1].$t);	
 					img.attr("alt", "picture of animal");
 					
 					var span = $("<span>").addClass('card-title');
-					span.text(pet.name);
-
-					divCardImg.append(img).append(span);
-					
-					
+					span.text(pet.name.$t);
+			
 					var divContent = $("<div>");
 					divContent.addClass('card-content');	
 					
-					var pDescript = $("<p>").text(pet.description);
-					divContent.append(pDescript);
+					var pDescript = $("<p>").text(pet.description.$t);
 
-					var pEmail = $("<P>").text(pet.contact.email)
+					var pEmail = $("<P>").text(pet.contact.email.$t);
 
-
+					var pNumber = $('<p>').text(pet.contact.phone.$t);
 					var divAction = $("<div>");
 					divAction.addClass('card-action');
+
+					divRow.append(divCol);
+					divCol.append(divCard);
+					divCard.append(divCardImg);
+					divCardImg.append(img).append(span);
+					divCardImg.append(span);
+					divCard.append(divContent);
+					divContent.append(pDescript).append(pEmail).append(pNumber);
+					$("#results").append(divRow);
+					
+
 					
 					
 					// console.log(pet);
@@ -89,7 +97,7 @@ function fetchAnimals(event) {
 					// console.log(pet.description);
 					// console.log(pet.contact.phone);
 
-					var newDiv = $("<div>");
+					
 					//document.querySelector('#results')
 
 				});
