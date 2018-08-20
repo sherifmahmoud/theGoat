@@ -1,49 +1,64 @@
-var baseURL = "https://api.petfinder.com/";
-				var reqType = "pet.find?";
-				var params = "animal=dog&location=Chicago, IL&count=2&output=basic&";
-				var yourKey = "key=0164d1167e200069fe3eb9c06cc6f8b8&";
-				var format = "format=json";
-				var callback = "&callback=?";
 
+var petForm = document.querySelector('#petForm');
 
-				var fullURL = baseURL+reqType+params+yourKey+format+callback;
-				$(document).ready(function(){
-				  $(".animalInfo").text(fullURL);
+$(".animalBtn").on('click', fetchAnimals);
 
-				  $.ajax({
-					dataType: "json",
-					url: fullURL,
-					success:(function(data){
-					  var prettyData = JSON.stringify(data, null,'\t');
-                      $(".dog").text(prettyData);
-                      console.log(prettyData);
+// fetch animals...
+function fetchAnimals(event) {
+	event.preventDefault();
 
-					})
-				  });
+	//get user input...
+	var animal = '';
+	if ($(this).attr('id') === "catBtn") {
+		animal = "cat";
+	} else {
+		animal = "dog";
+	}
+	console.log(animal);
+	var zip = document.querySelector('#zipCode').value;
+
+	//Start API sequence...
+
+	var url = 'http://api.petfinder.com/pet.find';
+	var apiKey = "0164d1167e200069fe3eb9c06cc6f8b8";
+
+	// Within $.ajax{...} is where we fill out our query... 
+	$.ajax({
+		url: url,
+		jsonp: "callback",
+		dataType: "jsonp",
+		data: {
+			key: apiKey,
+			animal: animal,
+			'location': zip,
+			count: 25,
+			output: 'basic',
+			format: 'json'
+		},
+		//response from JSONP...
+		success: function (response) {
+			showAnimals(response.petfinder.pets.pet);
+
+			// show listing of pets....
+			function showAnimals(pets) {
+				var results = document.querySelector('#results');
+				//clear first...
+				results.innerHTML = '';
+
+				pets.forEach((pet) => {
+					console.log(pet);
+					console.log(pet.name);
+					console.log(pet.id);
+					console.log(pet.shelterId);
+					console.log(pet.description);
+					console.log(pet.contact.phone);
+
+					var newDiv = $("<div>");
+					//document.querySelector('#results')
 
 				});
 
-                // var baseURL1 = "https://api.petfinder.com/";
-				// var reqType1 = "pet.find?";
-				// var params1 = "animal=cat&location=Chicago, IL&count=2&output=basic&";
-				// var yourKey1 = "key=0164d1167e200069fe3eb9c06cc6f8b8&";
-				// var format1 = "format=json";
-				// var callback1 = "&callback=?";
-                // var pTag = $("<p>");
-				// var fullURL1 = baseURL1+reqType1+params1+yourKey1+format1+callback1;
-				// $(document).ready(function(){
-				//   $(".cat").text(fullURL1);
-
-				//   $.ajax({
-				// 	dataType: "json",
-				// 	url: fullURL,
-				// 	success:(function(data){
-				// 	  var prettyData = JSON.stringify(data, null,'\t');
-                //       $(".cat").text(prettyData);
-                //       console.log(prettyData);
-
-				// 	})
-				//   });
-
-				// });
-			
+			}
+		},
+	})
+};

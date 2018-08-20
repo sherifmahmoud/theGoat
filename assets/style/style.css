@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+
+#info {
+    font-family: 'Roboto', sans-serif;
+    padding: 50px;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: black;
+
+#mapContainer{
+    width:600px;
+    height:600px;
+}
+=======
   label color .input-field label {
       color: #000;
   }
@@ -34,3 +65,4 @@
   .input-field .prefix.active {
       color: #000;
   }
+>>>>>>> petsProject
