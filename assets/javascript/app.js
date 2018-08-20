@@ -46,12 +46,48 @@ function fetchAnimals(event) {
 				results.innerHTML = '';
 
 				pets.forEach((pet) => {
-					console.log(pet);
-					console.log(pet.name);
-					console.log(pet.id);
-					console.log(pet.shelterId);
-					console.log(pet.description);
-					console.log(pet.contact.phone);
+					var divRow = $("<div>");
+					divRow.addClass('row');
+					
+					var divCol = $('<div>');
+					divCol.addClass('col s12 m7');
+					
+					var divCard = $('<div>');
+					divCard.addClass('card');
+
+					
+					var divCardImg = $('<div>');
+					divCardImg.addClass('card-image');
+					
+					var img = $("<img>");
+					img.attr("src", pet.media.photos.photo[2]);	
+					img.attr("alt", "picture of animal");
+					
+					var span = $("<span>").addClass('card-title');
+					span.text(pet.name);
+
+					divCardImg.append(img).append(span);
+					
+					
+					var divContent = $("<div>");
+					divContent.addClass('card-content');	
+					
+					var pDescript = $("<p>").text(pet.description);
+					divContent.append(pDescript);
+
+					var pEmail = $("<P>").text(pet.contact.email)
+
+
+					var divAction = $("<div>");
+					divAction.addClass('card-action');
+					
+					
+					// console.log(pet);
+					// console.log(pet.name);
+					// console.log(pet.id);
+					// console.log(pet.shelterId);
+					// console.log(pet.description);
+					// console.log(pet.contact.phone);
 
 					var newDiv = $("<div>");
 					//document.querySelector('#results')
