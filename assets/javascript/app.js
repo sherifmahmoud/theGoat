@@ -70,12 +70,21 @@ function fetchAnimals(event) {
                 var pNumber = $('<p>').text(pet.contact.phone.$t);
                 var number = pet.contact.phone.$t;
                 var petId = pet.id.$t;
-                var shelterId = $("<p>").text(pet.shelterId.$t);
+                var city = pet.contact.city.$t;
+				var state = pet.contact.state.$t;
+				var shelterId = $("<p>").text(pet.shelterId.$t);
                 var divAction = $("<div>");
                 var gender = pet.sex.$t;
                 //Click Feature to redirect to the animals full profile
                 var href = 'https://www.petfinder.com/search/pets-for-adoption/?id=' + petId;
                 var anchor = $('<a>').attr('href', href);
+				var maphref = 'map.html';
+				var mapAnchor = $('<a>').attr('href', maphref);
+				mapAnchor.addClass("mapLink");
+				mapAnchor.attr('data-city', city);
+				mapAnchor.attr('data-zip', zip);
+				mapAnchor.attr('data-state', state);
+				mapAnchor.text("Show Map");
                 anchor.text("Click Here To See My Story!");
                 var petProfile = "<a href='https://www.petfinder.com/search/pets-for-adoption/?id='";
                 var lastHalf = ">Click Here For My Story!</a>";
@@ -92,8 +101,23 @@ function fetchAnimals(event) {
 				anchor.addClass('white-text');
 				divCard.append(divAction);
                 divAction.append(anchor);
+				divAction.append(mapAnchor);
                 //Append to the results div on HTML... 
                 $("#results").append(divRow);
             });
                 }});
             }//fetchAnimals
+
+
+$(document).on('click', '.mapLink', function(){
+	var city = $(this).attr("data-city");
+	var state = $(this).attr("data-state");
+	var zip = $(this).attr("data-zip");
+
+	localStorage.setItem("city", city);
+	localStorage.setItem("zip", zip );
+	localStorage.setItem("state", state);
+
+	window.location.href = $(this).attr('href');
+
+});
