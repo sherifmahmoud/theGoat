@@ -88,8 +88,9 @@ function fetchAnimals(event) {
                 divContent.append("Pet Name: *" + animalName + "* ");
                 //divContent.append(" Male or Female: " + "'" + gender + "'" + "* ");
                 //divContent.append(" Shelter Email: " + email + "* ");
-                divAction.addClass('card-action');
-                divCard.append(divAction);
+                divAction.addClass('card-action cyan');
+				anchor.addClass('white-text');
+				divCard.append(divAction);
                 divAction.append(anchor);
                 //Append to the results div on HTML... 
                 $("#results").append(divRow);
