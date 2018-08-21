@@ -1,27 +1,28 @@
 console.log("hello");
 
-
-$(document).ready(function () {
-    $('input#input_text, textarea#textarea2').characterCounter();
-});
-
-$("#submitBtn").on("click", function () {
-    console.log("hello");
-    var nameData = $("#nameInput").val().trim();
-    var emailData = $("#emailInput").val().trim();
-    var messageData = $("#messageInput").val().trim();
-    console.log(nameData);
+$("#submit").on("click", function () {
+    var nameData = $("#name-input").val().trim();
+    var emailData = $("#email-input").val().trim();
+    var messageData = $("#message-input").val().trim();
 
     var contact = {
         name: nameData,
         email: emailData,
         message: messageData
     }
-    console.log("contact", contact);
+    console.log(nameData);
+    console.log(emailData);
+    console.log(messageData);
 
-    $("#nameInput").val(" ");
-    $("#emailInput").val("");
-    $("#messageInput").val("");
 
-    // return false;
+
+    $("#name-input").val("");
+    $("#email-input").val("");
+    $("#message-input").val("");
+
+    return false;
+});
+
+$(document).ready(function () {
+    $('input#input_text, textarea#textarea2').characterCounter();
 });
