@@ -18,7 +18,7 @@ function fetchAnimals(event) {
     //target the zip code input
     var zip = $('#zipCode').val();
     //Start API sequence using JSONP...
-    var url = 'http://api.petfinder.com/pet.find';
+    var url = 'https://api.petfinder.com/pet.find';
     var apiKey = "0164d1167e200069fe3eb9c06cc6f8b8";
     // Within $.ajax{...} is where we fill out our query... 
     $.ajax({
