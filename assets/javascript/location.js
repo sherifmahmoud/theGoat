@@ -12,10 +12,6 @@ $(document).ready(function () {
     zip = localStorage.getItem("zip");
 
     InitHereApi();
-
-     //Step 2: initialize a map - this map is centered over California
-     var mapDiv = document.getElementById('map');
-     InitMap(mapDiv);
     
     var address = `${city} ${zip} ${state}`;
     // Create the parameters for the geocoding request:
@@ -35,6 +31,10 @@ function InitHereApi() {
         app_code: HERE_APP_CODE,
         useHTTPS: true
     });
+
+     //Step 2: initialize a map - this map is centered over California
+     var mapDiv = document.getElementById('map');
+     InitMap(mapDiv);
 }
 function InitMap(mapDiv) {
     var pixelRatio = window.devicePixelRatio || 1;
