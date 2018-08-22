@@ -17,6 +17,20 @@ function fetchAnimals(event) {
     console.log(animal);
     //target the zip code input
     var zip = $('#zipCode').val();
+
+	if (!isValidZip(zip)) {
+		alert('Please Enter a Valid Zip Code');
+	return;
+  	}
+
+	//Validate the Zip code...
+	function isValidZip (zip) {
+		return /^\d{5}(-\d{4})?$/.test(zip);
+	  };
+	  
+	  
+
+
     //Start API sequence using JSONP...
     var url = 'https://api.petfinder.com/pet.find';
     var apiKey = "0164d1167e200069fe3eb9c06cc6f8b8";
