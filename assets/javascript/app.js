@@ -1,100 +1,123 @@
-
+//define the form on pull from on HTML...
 var petForm = document.querySelector('#petForm');
-
+//Define the click function on the cat/dog photos...
 $(".animalBtn").on('click', fetchAnimals);
-
 // fetch animals...
 function fetchAnimals(event) {
-	event.preventDefault();
+    //get user input...
+    var animal = '';
+    //if user clicks the cat img...
+    if ($(this).attr('id') === "catBtn") {
+        animal = "cat";
+        //if user clicks the dog img... 
+    } else {
+        animal = "dog";
+    }
+    //console.log the click to make use working properly...
+    console.log(animal);
+    //target the zip code input
+    var zip = $('#zipCode').val();
+    //Start API sequence using JSONP...
+    var url = 'https://api.petfinder.com/pet.find';
+    var apiKey = "0164d1167e200069fe3eb9c06cc6f8b8";
+    // Within $.ajax{...} is where we fill out our query... 
+    $.ajax({
+        url: url,//baseurl for api...
+        jsonp: "callback",//define callback...
+        dataType: "jsonp",//request data in JSONP...
+        data: {
+            key: apiKey,//apiKey...
+            animal: animal,//animal variable from click...
+            'location': zip,//zip code from input...
+            count: 20,//search return amount...
+            output: 'basic',//argument to return basic animal profile...
+            format: 'json'//define the output for JSON and not XML...
+        },
+        //response from JSONP...
+        success: function (response) {
+            $('#results').empty();
+            var results = document.querySelector('#results');
+            var pets = response.petfinder.pets.pet;
+            //showAnimals(response);
+            pets.forEach(function (pet) {
+                console.log(response);
+                //console log the objects returns
+                console.log(pet);
+                //Dynamic cards - adding classes/elements...
+                var divRow = $("<div>");
+                divRow.addClass('row');
+                var divCol = $('<div>');
+                divCol.addClass('col s12 m7');
+                var divCard = $('<div>');
+                divCard.addClass('card xlarge');
+                var divCardImg = $('<div>');
+                divCardImg.addClass('card-image');
+                //Photo of the animals...
+                var img = $("<img>");
+                img.attr("src", pet.media.photos.photo[3].$t);
+                img.attr("alt", "picture of animal");
+                img.attr("width", 300);
+                //Add animal name to Photo...
+                var span = $("<span>").addClass('card-title');
+                span.text(pet.name.$t);
+                var divContent = $("<div>");
+                divContent.addClass('card-content');
+                //variables for pathways and constructing the dynamic cards from the for loop output...
+                var animalName = pet.name.$t;
+                var pDescript = $("<p>").text(pet.description.$t);
+                var pEmail = $("<P>").text(pet.contact.email.$t);
+                var email = pet.contact.email.$t;
+                var pNumber = $('<p>').text(pet.contact.phone.$t);
+                var number = pet.contact.phone.$t;
+                var petId = pet.id.$t;
+                var city = pet.contact.city.$t;
+				var state = pet.contact.state.$t;
+				var shelterId = $("<p>").text(pet.shelterId.$t);
+                var divAction = $("<div>");
+                var gender = pet.sex.$t;
+                //Click Feature to redirect to the animals full profile
+                var href = 'https://www.petfinder.com/search/pets-for-adoption/?id=' + petId;
+                var anchor = $('<a>').attr('href', href);
+				var maphref = 'map.html';
+				var mapAnchor = $('<a>').attr('href', maphref);
+				mapAnchor.addClass("mapLink");
+				mapAnchor.attr('data-city', city);
+				mapAnchor.attr('data-zip', zip);
+				mapAnchor.attr('data-state', state);
+				mapAnchor.text("Show Map");
+                anchor.text("Click Here To See My Story!");
+                var petProfile = "<a href='https://www.petfinder.com/search/pets-for-adoption/?id='";
+                var lastHalf = ">Click Here For My Story!</a>";
+                divRow.append(divCol);
+                divCol.append(divCard);
+                divCard.append(divCardImg);
+                divCardImg.append(img).append(span);
+                divCardImg.append(span);
+                divCard.append(divContent);
+                divContent.append("Pet Name: *" + animalName + "* ");
+                //divContent.append(" Male or Female: " + "'" + gender + "'" + "* ");
+                //divContent.append(" Shelter Email: " + email + "* ");
+                divAction.addClass('card-action cyan');
+				anchor.addClass('white-text');
+				divCard.append(divAction);
+                divAction.append(anchor);
+				divAction.append(mapAnchor);
+                //Append to the results div on HTML... 
+                $("#results").append(divRow);
+            });
+                }});
+            }//fetchAnimals
 
-	//get user input...
-	var animal = '';
-	if ($(this).attr('id') === "catBtn") {
-		animal = "cat";
-	} else {
-		animal = "dog";
-	}
-	console.log(animal);
-	var zip = document.querySelector('#zipCode').value;
 
-	//Start API sequence...
+$(document).on('click', '.mapLink', function(){
+	var city = $(this).attr("data-city");
+	var state = $(this).attr("data-state");
+	var zip = $(this).attr("data-zip");
 
-	var url = 'http://api.petfinder.com/pet.find';
-	var apiKey = "0164d1167e200069fe3eb9c06cc6f8b8";
+	localStorage.setItem("city", city);
+	localStorage.setItem("zip", zip );
+	localStorage.setItem("state", state);
 
-	// Within $.ajax{...} is where we fill out our query... 
-	$.ajax({
-		url: url,
-		jsonp: "callback",
-		dataType: "jsonp",
-		data: {
-			key: apiKey,
-			animal: animal,
-			'location': zip,
-			count: 25,
-			output: 'basic',
-			format: 'json'
-		},
-		//response from JSONP...
-		success: function (response) {
-			showAnimals(response.petfinder.pets.pet);
+	window.location.href = $(this).attr('href');
 
-			// show listing of pets....
-			function showAnimals(pets) {
-				var results = document.querySelector('#results');
-				//clear first...
-				results.innerHTML = '';
-
-				pets.forEach((pet) => {
-					var divRow = $("<div>");
-					divRow.addClass('row');
-					
-					var divCol = $('<div>');
-					divCol.addClass('col s12 m7');
-					
-					var divCard = $('<div>');
-					divCard.addClass('card');
-
-					
-					var divCardImg = $('<div>');
-					divCardImg.addClass('card-image');
-					
-					var img = $("<img>");
-					img.attr("src", pet.media.photos.photo[2]);	
-					img.attr("alt", "picture of animal");
-					
-					var span = $("<span>").addClass('card-title');
-					span.text(pet.name);
-
-					divCardImg.append(img).append(span);
-					
-					
-					var divContent = $("<div>");
-					divContent.addClass('card-content');	
-					
-					var pDescript = $("<p>").text(pet.description);
-					divContent.append(pDescript);
-
-					var pEmail = $("<P>").text(pet.contact.email)
-
-
-					var divAction = $("<div>");
-					divAction.addClass('card-action');
-					
-					
-					// console.log(pet);
-					// console.log(pet.name);
-					// console.log(pet.id);
-					// console.log(pet.shelterId);
-					// console.log(pet.description);
-					// console.log(pet.contact.phone);
-
-					var newDiv = $("<div>");
-					//document.querySelector('#results')
-
-				});
-
-			}
-		},
-	})
-};
+});
