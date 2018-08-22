@@ -48,7 +48,7 @@ $("#submit").on("click", function (event) {
     $("#message-input").val("");
 });
 
-// 3. Create Firebase event for adding the message to the database and a row in the html when a user adds an entry
+// Create Firebase event for adding the message to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val());
 
