@@ -52,56 +52,65 @@ function fetchAnimals(event) {
                 divCard.addClass('card xlarge');
                 var divCardImg = $('<div>');
                 divCardImg.addClass('card-image');
-                //Photo of the animals...
+                
+				//Photo of the animals...
                 var img = $("<img>");
                 img.attr("src", pet.media.photos.photo[3].$t);
                 img.attr("alt", "picture of animal");
                 img.attr("width", 300);
-                //Add animal name to Photo...
+                
+				//Add animal name to Photo...
                 var span = $("<span>").addClass('card-title');
                 span.text(pet.name.$t);
                 var divContent = $("<div>");
                 divContent.addClass('card-content');
-                //variables for pathways and constructing the dynamic cards from the for loop output...
+                
+				//variables for pathways and constructing the dynamic cards from the for loop output...
                 var animalName = pet.name.$t;
                 var pDescript = $("<p>").text(pet.description.$t);
-                var pEmail = $("<P>").text(pet.contact.email.$t);
-                var email = pet.contact.email.$t;
-                var pNumber = $('<p>').text(pet.contact.phone.$t);
-                var number = pet.contact.phone.$t;
                 var petId = pet.id.$t;
                 var city = pet.contact.city.$t;
 				var state = pet.contact.state.$t;
-				var shelterId = $("<p>").text(pet.shelterId.$t);
-                var divAction = $("<div>");
-                var gender = pet.sex.$t;
-                //Click Feature to redirect to the animals full profile
+				var divAction = $("<div>");
+                var statement = "Hello, I go by the name " + animalName + ", click the link to learn more!!!"
+                var blank = "_blank";
+				
+				//Variables to be used in future iterations...
+				//var pEmail = $("<P>").text(pet.contact.email.$t);
+				//var email = pet.contact.email.$t;
+				//var pNumber = $('<p>').text(pet.contact.phone.$t);
+				//var number = pet.contact.phone.$t;
+				//var shelterId = $("<p>").text(pet.shelterId.$t);
+				//var gender = pet.sex.$t;
+
+
+				//Click Feature to redirect to the animals full profile
                 var href = 'https://www.petfinder.com/search/pets-for-adoption/?id=' + petId;
-                var anchor = $('<a>').attr('href', href);
+                var anchor = $('<a>').attr('href', href).attr('target', blank);
 				var maphref = 'map.html';
 				var mapAnchor = $('<a>').attr('href', maphref);
+				
+				//Build out the map feature with classes and attributes...
 				mapAnchor.addClass("mapLink");
+				mapAnchor.addClass('white-text');
 				mapAnchor.attr('data-city', city);
 				mapAnchor.attr('data-zip', zip);
 				mapAnchor.attr('data-state', state);
 				mapAnchor.text("Show Map");
                 anchor.text("Click Here To See My Story!");
-                var petProfile = "<a href='https://www.petfinder.com/search/pets-for-adoption/?id='";
-                var lastHalf = ">Click Here For My Story!</a>";
                 divRow.append(divCol);
                 divCol.append(divCard);
                 divCard.append(divCardImg);
                 divCardImg.append(img).append(span);
                 divCardImg.append(span);
                 divCard.append(divContent);
-                divContent.append("Pet Name: *" + animalName + "* ");
-                //divContent.append(" Male or Female: " + "'" + gender + "'" + "* ");
-                //divContent.append(" Shelter Email: " + email + "* ");
+                divContent.append(statement);
                 divAction.addClass('card-action cyan');
-				anchor.addClass('white-text');
 				divCard.append(divAction);
                 divAction.append(anchor);
 				divAction.append(mapAnchor);
+				anchor.addClass('white-text');
+				mapAnchor.attr('white-text');
                 //Append to the results div on HTML... 
                 $("#results").append(divRow);
             });
